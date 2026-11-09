@@ -328,13 +328,17 @@ class AppMenuButton extends PanelMenu.Button {
     _makeRow(a) {
         const P = this._p;
         const row = new St.BoxLayout({style_class: 'agm-row'});
-        const btn = new St.Button({style_class: 'agm-app', can_focus: true, x_expand: true, reactive: true});
-        const inner = new St.BoxLayout();
+        const btn = new St.Button({style_class: 'agm-app', can_focus: true, x_expand: true, x_align: Clutter.ActorAlign.FILL,
+            reactive: true});
+        const inner = new St.BoxLayout({x_expand: true, x_align: Clutter.ActorAlign.FILL});
         inner.add_child(new St.Icon({gicon: a.info.get_icon(), icon_size: this._iconSize, style_class: 'agm-app-icon'}));
-        const text = new St.BoxLayout({vertical: true, y_align: Clutter.ActorAlign.CENTER, x_expand: true});
-        text.add_child(new St.Label({text: a.name, style_class: 'agm-app-name', style: `color: ${P.text};`}));
+        const text = new St.BoxLayout({vertical: true, y_align: Clutter.ActorAlign.CENTER, x_expand: true,
+            x_align: Clutter.ActorAlign.START});
+        text.add_child(new St.Label({text: a.name, style_class: 'agm-app-name', x_align: Clutter.ActorAlign.START,
+            style: `color: ${P.text};`}));
         const sub = this._showSub ? (a.info.get_generic_name?.() ?? a.info.get_description?.()) : null;
-        if (sub) text.add_child(new St.Label({text: sub, style_class: 'agm-app-sub', style: `color: ${P.dim};`}));
+        if (sub) text.add_child(new St.Label({text: sub, style_class: 'agm-app-sub', x_align: Clutter.ActorAlign.START,
+            style: `color: ${P.dim};`}));
         inner.add_child(text);
         btn.set_child(inner);
         btn.connect('clicked', () => this._launch(a));
