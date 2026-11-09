@@ -10,7 +10,7 @@
 .agm-sidebar { spacing: 2px; }
 .agm-cat { padding: 8px 10px; border-radius: 10px; text-align: left; }
 .agm-cat-icon { icon-size: 16px; margin-right: 10px; }
-.agm-count { font-size: 11px; }
+.agm-count { font-size: 11px; margin-left: 14px; min-width: 18px; text-align: right; }
 
 .agm-scroll { padding-left: 10px; }
 .agm-list { spacing: 2px; padding-right: 6px; }

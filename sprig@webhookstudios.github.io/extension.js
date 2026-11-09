@@ -4,6 +4,7 @@ import Clutter from 'gi://Clutter';
 import Shell from 'gi://Shell';
 import GLib from 'gi://GLib';
 import Meta from 'gi://Meta';
+import Pango from 'gi://Pango';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
@@ -107,8 +108,9 @@ class AppMenuButton extends PanelMenu.Button {
             'box-shadow: 0 8px 32px rgba(0,0,0,0.55);');
         this._root.set_style(`width: ${s.get_int('menu-width')}px;`);
         this._body.set_style(`height: ${s.get_int('menu-height')}px;`);
-        this._sidebar.set_style(`width: ${s.get_int('sidebar-width')}px;`);
-        this._scroll.set_style(`border-left: 1px solid ${P.border};`);
+        const sw = s.get_int('sidebar-width');
+        this._sidebar.set_style(`width: ${sw}px; min-width: ${sw}px;`);
+        this._scroll.set_style(`min-width: 0; border-left: 1px solid ${P.border};`);
         this._entryStyle(false);
         this._searchIcon.set_style(`color: ${P.dim};`);
     }
@@ -206,10 +208,12 @@ class AppMenuButton extends PanelMenu.Button {
         const P = this._p;
         for (const g of this._groups) {
             const btn = new St.Button({style_class: 'agm-cat', can_focus: true, x_expand: true, reactive: true});
-            const row = new St.BoxLayout();
+            const row = new St.BoxLayout({x_expand: true});
             row.add_child(new St.Icon({icon_name: g.icon, style_class: 'agm-cat-icon', style: `color: ${P.soft};`}));
-            row.add_child(new St.Label({text: g.title, y_align: Clutter.ActorAlign.CENTER, x_expand: true,
-                style: `color: ${P.soft};`}));
+            const title = new St.Label({text: g.title, y_align: Clutter.ActorAlign.CENTER, x_expand: true,
+                style: `color: ${P.soft};`});
+            title.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
+            row.add_child(title);
             const count = new St.Label({style_class: 'agm-count', y_align: Clutter.ActorAlign.CENTER,
                 style: `color: ${P.faint};`});
             row.add_child(count);
