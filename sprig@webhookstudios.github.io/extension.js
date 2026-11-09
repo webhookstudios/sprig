@@ -113,6 +113,7 @@ class AppMenuButton extends PanelMenu.Button {
         this._scroll.set_style(`min-width: 0; border-left: 1px solid ${P.border};`);
         this._entryStyle(false);
         this._searchIcon.set_style(`color: ${P.dim};`);
+        this._entry.get_hint_actor?.()?.set_style(`color: ${P.dim};`);
     }
 
     _entryStyle(focused) {
@@ -127,15 +128,22 @@ class AppMenuButton extends PanelMenu.Button {
         const P = this._p;
         let extra = '';
         if (btn._active) extra = `background-color: ${P.accent}; color: ${P.onAccent};`;
-        else if (btn.hover || btn.has_key_focus) extra = `background-color: ${P.hover};`;
-        btn.set_style(`${btn._base ?? ''}${extra}`);
+        else if (btn.hover || btn.has_key_focus()) extra = `background-color: ${P.hover};`;
+        if (btn._parts) {
+            const [icon, title, count] = btn._parts;
+            icon.set_style(`color: ${btn._active ? P.onAccent : P.soft};`);
+            title.set_style(`color: ${btn._active ? P.onAccent : P.soft};`);
+            count.set_style(`color: ${btn._active ? P.onAccent : P.faint};`);
+        }
+        btn.set_style(`background-color: transparent; box-shadow: none; border: none; ${btn._base ?? ''}${extra}`);
     }
 
     _track(btn, base) {
         btn._base = base;
         btn._active = false;
         btn.connect('notify::hover', () => this._restyle(btn));
-        btn.connect('notify::key-focus', () => this._restyle(btn));
+        btn.connect('key-focus-in', () => this._restyle(btn));
+        btn.connect('key-focus-out', () => this._restyle(btn));
         this._restyle(btn);
     }
 
@@ -209,7 +217,8 @@ class AppMenuButton extends PanelMenu.Button {
         for (const g of this._groups) {
             const btn = new St.Button({style_class: 'agm-cat', can_focus: true, x_expand: true, reactive: true});
             const row = new St.BoxLayout({x_expand: true});
-            row.add_child(new St.Icon({icon_name: g.icon, style_class: 'agm-cat-icon', style: `color: ${P.soft};`}));
+            const catIcon = new St.Icon({icon_name: g.icon, style_class: 'agm-cat-icon', style: `color: ${P.soft};`});
+            row.add_child(catIcon);
             const title = new St.Label({text: g.title, y_align: Clutter.ActorAlign.CENTER, x_expand: true,
                 style: `color: ${P.soft};`});
             title.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
@@ -219,6 +228,7 @@ class AppMenuButton extends PanelMenu.Button {
             row.add_child(count);
             btn.set_child(row);
             btn.connect('clicked', () => this._jumpTo(g.id));
+            btn._parts = [catIcon, title, count];
             this._track(btn, '');
             this._sidebar.add_child(btn);
             this._catButtons.set(g.id, {btn, count});
@@ -351,7 +361,7 @@ class AppMenuButton extends PanelMenu.Button {
             style_class: 'agm-star', can_focus: true, reactive: true,
             child: new St.Icon({icon_name: isFav ? 'starred-symbolic' : 'non-starred-symbolic', icon_size: 16}),
         });
-        const starStyle = () => star.set_style(`color: ${isFav || star.hover ? P.star : P.faint};` +
+        const starStyle = () => star.set_style(`box-shadow: none; border: none; background-color: transparent; color: ${isFav || star.hover ? P.star : P.faint};` +
             (star.hover ? `background-color: ${P.hover};` : ''));
         star.connect('notify::hover', starStyle);
         starStyle();

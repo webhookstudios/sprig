@@ -2,6 +2,14 @@
 
 A top-left app menu for GNOME. Your apps are grouped by category, searchable, and easy to launch, with settings for colors, size, categories and hidden apps.
 
+![The Sprig menu: categories on the left, apps in alphabetical order on the right](docs/screenshots/menu.png)
+
+| Search | Your own colors and size |
+|---|---|
+| ![Searching for "ed"](docs/screenshots/search.png) | ![A light menu with a green accent, larger icons and rounded corners](docs/screenshots/custom.png) |
+
+![The settings window](docs/screenshots/settings.png)
+
 ## Requirements
 
 - GNOME Shell 50 (Ubuntu 26.04)
