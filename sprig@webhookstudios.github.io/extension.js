@@ -309,10 +309,12 @@ class AppMenuButton extends PanelMenu.Button {
             const items = this._appsIn(g.id);
             if (!items.length) continue;
             const sec = new St.BoxLayout({vertical: true, style_class: 'agm-section'});
-            const head = new St.BoxLayout({style_class: 'agm-head'});
+            const head = new St.BoxLayout({style_class: 'agm-head', x_expand: true});
             head.add_child(new St.Icon({icon_name: g.icon, style_class: 'agm-head-icon', style: `color: ${P.accent};`}));
-            head.add_child(new St.Label({text: g.title, style_class: 'agm-head-label',
-                y_align: Clutter.ActorAlign.CENTER, style: `color: ${P.dim};`}));
+            const headLabel = new St.Label({text: g.title, style_class: 'agm-head-label',
+                y_align: Clutter.ActorAlign.CENTER, x_expand: true, style: `color: ${P.dim};`});
+            headLabel.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
+            head.add_child(headLabel);
             sec.add_child(head);
             for (const a of items) sec.add_child(this._makeRow(a));
             this._list.add_child(sec);
