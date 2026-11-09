@@ -1,0 +1,13 @@
+#!/bin/sh
+# Builds the release zip in dist/, ready for `gnome-extensions install`.
+set -e
+
+UUID=sprig@webhookstudios.github.io
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+
+mkdir -p "$ROOT/dist"
+gnome-extensions pack --force --out-dir "$ROOT/dist" \
+    --extra-source=groups.js \
+    "$ROOT/$UUID"
+
+echo "Built $ROOT/dist/$UUID.shell-extension.zip"

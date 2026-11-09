@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.sprig"
+          path="/org/gnome/shell/extensions/sprig/">
+
+    <!-- Shortcut -->
+    <key name="toggle-menu" type="as">
+      <default><![CDATA[['<Alt>F1']]]></default>
+      <summary>Open or close the Sprig menu</summary>
+    </key>
+
+    <!-- Size -->
+    <key name="menu-width" type="i">
+      <default>640</default>
+      <range min="420" max="1400"/>
+      <summary>Width of the menu in pixels</summary>
+    </key>
+    <key name="menu-height" type="i">
+      <default>440</default>
+      <range min="260" max="1000"/>
+      <summary>Height of the app list in pixels</summary>
+    </key>
+    <key name="sidebar-width" type="i">
+      <default>178</default>
+      <range min="120" max="320"/>
+      <summary>Width of the category column in pixels</summary>
+    </key>
+
+    <!-- Appearance -->
+    <key name="background-color" type="s">
+      <default>'#242428'</default>
+      <summary>Menu background color</summary>
+    </key>
+    <key name="background-opacity" type="i">
+      <default>100</default>
+      <range min="30" max="100"/>
+      <summary>Menu background opacity in percent</summary>
+    </key>
+    <key name="text-color" type="s">
+      <default>'#ffffff'</default>
+      <summary>Text and icon color</summary>
+    </key>
+    <key name="accent-color" type="s">
+      <default>'#3584e4'</default>
+      <summary>Color of the selected category and the search focus ring</summary>
+    </key>
+    <key name="corner-radius" type="i">
+      <default>18</default>
+      <range min="0" max="32"/>
+      <summary>Corner radius of the menu in pixels</summary>
+    </key>
+    <key name="icon-size" type="i">
+      <default>28</default>
+      <range min="16" max="64"/>
+      <summary>App icon size in pixels</summary>
+    </key>
+    <key name="show-descriptions" type="b">
+      <default>true</default>
+      <summary>Show a short description under each app name</summary>
+    </key>
+
+    <!-- Top bar button -->
+    <key name="panel-label" type="s">
+      <default>'Apps'</default>
+      <summary>Text on the top bar button</summary>
+    </key>
+    <key name="show-panel-label" type="b">
+      <default>true</default>
+      <summary>Show text next to the icon on the top bar button</summary>
+    </key>
+
+    <!-- Apps and categories -->
+    <key name="hidden-apps" type="as">
+      <default>[]</default>
+      <summary>Desktop file ids of apps hidden from the menu</summary>
+    </key>
+    <key name="hidden-groups" type="as">
+      <default>[]</default>
+      <summary>Ids of categories hidden from the menu</summary>
+    </key>
+    <key name="custom-groups" type="as">
+      <default>[]</default>
+      <summary>Names of categories you added</summary>
+    </key>
+    <key name="app-groups" type="as">
+      <default>[]</default>
+      <summary>Manual category choices, each written as desktop-file-id=category-id</summary>
+    </key>
+  </schema>
+</schemalist>

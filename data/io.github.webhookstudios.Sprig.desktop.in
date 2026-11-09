@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Sprig
+GenericName=App Menu Settings
+Comment=Change how the Sprig app menu looks and which apps it shows
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+StartupNotify=false
+Categories=Settings;GNOME;GTK;
+Keywords=apps;launcher;menu;categories;extension;
