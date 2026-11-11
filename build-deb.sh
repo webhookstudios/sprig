@@ -37,7 +37,7 @@ chmod 644 "$STAGE/usr/share/applications/$APP_ID.desktop"
 
 cat > "$STAGE/usr/share/doc/sprig/copyright" <<EOF
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Sprig (formerly Sprig)
+Upstream-Name: Sprig
 Source: https://github.com/webhookstudios/sprig
 
 Files: *
@@ -64,7 +64,7 @@ Section: gnome
 Priority: optional
 Homepage: https://github.com/webhookstudios/sprig
 Description: Grouped app menu for the GNOME top bar
- Sprig (formerly Sprig) is a GNOME Shell extension that adds an Apps button at the top left.
+ Sprig is a GNOME Shell extension that adds an Apps button at the top left.
  It opens a searchable menu with your apps grouped by category, favorites,
  and settings for colors, size, categories and hidden apps.
  .

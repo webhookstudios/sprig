@@ -1,14 +1,11 @@
-# Sprig 1.1.0
+# Sprig 1.1.1
 
-Sprig keeps its name. It now has the Sedge look shared by every webhookstudios app: one set of colors, fonts and icons, in light and dark mode.
+A small cleanup release. Everything else works exactly as before.
 
-- New icon, colors and fonts. Window titles and headings use the Sedge serif.
-- New default menu colors in Sedge pine and teal. Colors you already picked stay.
-- The settings window is titled Sprig.
-- Everything works exactly as before. Your settings and presets carry over.
+- Fixes the package description, which repeated the app's name.
 
 Install:
 
 ```bash
-sudo apt install ./sprig_1.1.0_all.deb
+sudo apt install ./sprig_1.1.1_all.deb
 ```
