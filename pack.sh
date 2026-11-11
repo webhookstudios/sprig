@@ -8,6 +8,7 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 mkdir -p "$ROOT/dist"
 gnome-extensions pack --force --out-dir "$ROOT/dist" \
     --extra-source=groups.js \
+    --extra-source=sedge \
     "$ROOT/$UUID"
 
 echo "Built $ROOT/dist/$UUID.shell-extension.zip"

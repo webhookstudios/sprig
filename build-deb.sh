@@ -24,6 +24,8 @@ install -d "$EXT" "$STAGE/DEBIAN" "$STAGE/usr/bin" \
 
 install -m 644 "$ROOT/$UUID"/*.js "$ROOT/$UUID/metadata.json" \
     "$ROOT/$UUID/stylesheet.css" "$EXT/"
+cp -r "$ROOT/$UUID/sedge" "$EXT/"
+find "$EXT/sedge" -type f -exec chmod 644 {} +
 # With no schemas folder of its own, the extension reads its schema from
 # the system one, which dpkg compiles through glib's trigger.
 install -m 644 "$ROOT/$UUID/schemas"/*.gschema.xml "$STAGE/usr/share/glib-2.0/schemas/"
@@ -35,7 +37,7 @@ chmod 644 "$STAGE/usr/share/applications/$APP_ID.desktop"
 
 cat > "$STAGE/usr/share/doc/sprig/copyright" <<EOF
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Sprig
+Upstream-Name: Sprig (formerly Sprig)
 Source: https://github.com/webhookstudios/sprig
 
 Files: *
@@ -43,6 +45,11 @@ Copyright: $(date +%Y) webhookstudios
 License: GPL-2+
  On Debian systems, the full text of the GNU General Public License
  version 2 can be found in /usr/share/common-licenses/GPL-2.
+
+Files: usr/share/gnome-shell/extensions/*/sedge/fonts/*
+Copyright: 2023 The Young Serif Project Authors; 2015 The Public Sans Project Authors
+License: OFL-1.1
+ The full license texts are in the extension's sedge/fonts/ folder.
 EOF
 chmod 644 "$STAGE/usr/share/doc/sprig/copyright"
 
@@ -57,7 +64,7 @@ Section: gnome
 Priority: optional
 Homepage: https://github.com/webhookstudios/sprig
 Description: Grouped app menu for the GNOME top bar
- Sprig is a GNOME Shell extension that adds an Apps button at the top left.
+ Sprig (formerly Sprig) is a GNOME Shell extension that adds an Apps button at the top left.
  It opens a searchable menu with your apps grouped by category, favorites,
  and settings for colors, size, categories and hidden apps.
  .

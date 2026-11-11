@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect x="8" y="8" width="112" height="112" rx="56" fill="#f7f3e8"/>
-<path d="M64 100V56" stroke="#2f6b3f" stroke-width="6" stroke-linecap="round"/>
-<path d="M64 62C50 62 38 52 38 36c16 0 26 10 26 26z" fill="#4c9a5f"/><path d="M64 52C64 38 74 28 90 28c0 16-10 24-26 24z" fill="#2f6b3f"/>
-<g fill="#4c9a5f"><circle cx="44" cy="82" r="5"/><circle cx="84" cy="82" r="5"/><circle cx="44" cy="98" r="5"/><circle cx="84" cy="98" r="5"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6eee8"/>
+      <stop offset="1" stop-color="#d2dfd6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="67" r="54" fill="#1e2b26" fill-opacity=".16"/>
+  <circle cx="64" cy="63" r="54" fill="url(#face)"/>
+  <circle cx="64" cy="63" r="52.5" fill="none" stroke="#247268" stroke-width="3"/>
+  <g transform="translate(64 63) scale(2.55) translate(-12 -12)" fill="none" stroke="#247268"
+     stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z"/>
+  </g>
+</svg>

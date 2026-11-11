@@ -28,7 +28,7 @@
 
     <!-- Appearance -->
     <key name="background-color" type="s">
-      <default>'#242428'</default>
+      <default>'#18201c'</default>
       <summary>Menu background color</summary>
     </key>
     <key name="background-opacity" type="i">
@@ -37,11 +37,11 @@
       <summary>Menu background opacity in percent</summary>
     </key>
     <key name="text-color" type="s">
-      <default>'#ffffff'</default>
+      <default>'#e4ebe6'</default>
       <summary>Text and icon color</summary>
     </key>
     <key name="accent-color" type="s">
-      <default>'#3584e4'</default>
+      <default>'#2a8579'</default>
       <summary>Color of the selected category and the search focus ring</summary>
     </key>
     <key name="corner-radius" type="i">

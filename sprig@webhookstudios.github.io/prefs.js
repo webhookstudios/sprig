@@ -5,6 +5,7 @@ import GLib from 'gi://GLib';
 import Gtk from 'gi://Gtk';
 
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+import {applyToWindow as applySedge} from './sedge/sedge.js';
 
 import {BUILTIN_GROUPS, allGroups, autoGroup, parseOverrides, serializeOverrides, CUSTOM_PREFIX}
     from './groups.js';
@@ -301,6 +302,8 @@ function appsPage(settings) {
 
 export default class SprigPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
+        applySedge(window, `${this.path}/sedge`);
+        window.set_title('Sprig');
         const settings = this.getSettings();
         window.set_default_size(680, 760);
         window.add(appearancePage(window, settings));
