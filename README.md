@@ -21,10 +21,10 @@ Sprig has only been tested on Ubuntu 26.04 with GNOME Shell 50.1 on Wayland.
 
 ### With the deb package (recommended)
 
-Download `sprig_1.0.0_all.deb` from the [latest release](https://github.com/webhookstudios/sprig/releases/latest), then install it:
+Download `sprig_1.0.1_all.deb` from the [latest release](https://github.com/webhookstudios/sprig/releases/latest), then install it:
 
 ```bash
-sudo apt install ./sprig_1.0.0_all.deb
+sudo apt install ./sprig_1.0.1_all.deb
 ```
 
 Log out and back in, then open **Sprig** from the apps menu. The first time, that turns Sprig on and opens its settings.
