@@ -1,11 +1,11 @@
-# Sprig 1.1.1
+# Sprig 1.1.2
 
-A small cleanup release. Everything else works exactly as before.
+A bigger app icon. Everything else works exactly as before.
 
-- Fixes the package description, which repeated the app's name.
+- The app icon is bigger, so it sits evenly with your other apps in the dock and the app grid.
 
 Install:
 
 ```bash
-sudo apt install ./sprig_1.1.1_all.deb
+sudo apt install ./sprig_1.1.2_all.deb
 ```

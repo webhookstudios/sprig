@@ -2,7 +2,7 @@
   "uuid": "sprig@webhookstudios.github.io",
   "name": "Sprig",
   "description": "A top-left app menu that groups your apps by category, with search, favorites and plenty of settings.",
-  "version-name": "1.1.1",
+  "version-name": "1.1.2",
   "shell-version": ["50"],
   "settings-schema": "org.gnome.shell.extensions.sprig",
   "url": "https://github.com/webhookstudios/sprig"
